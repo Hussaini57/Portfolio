@@ -4,34 +4,38 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="./node_modules/bootstrap/dist/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/1.0.0/css/font-awesome.css" integrity="sha512-YX9NLok9RLg+o5JkA2Whp1kPDCBCEUolTyYykJVOe1xcaTNebXU/x02TxV0LpVYqVNJV5NVjyoMW0jHnJWICKg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="style.css">
-    <title>HUSSAINI | PORTFOLIO</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/1.0.0/css/font-awesome.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="./node_modules/bootstrap-icons/font/bootstrap-icons.css">
+    <title>HUSSAINI | PORTFOLIO</title>
+    
 </head>
 <body>
 <nav class="navbar navbar-expand-lg ">
   <div class="container">
     <a class="navbar-brand" href="/">e<span class="dot">.</span></a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
+    <span class="navbar-toggler-icon">
+      <div class="menu icon"></div>
+    </span>
     </button>
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
         <li class="nav-item">
-          <a class="nav-link active" aria-current="page" href="#">Home</a>
+          <a class="nav-link" href="#">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#hero">About</a>
+          <a class="nav-link" href="#about">About</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Project</a>
+          <a class="nav-link" href="#Project">Project</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Testimonial</a>
+          <a class="nav-link" href="#accordion">Accordion</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="#">Contact</a>
+          <a class="nav-link" href="#Contact">Contact</a>
         </li>
         
        
@@ -41,7 +45,7 @@
   </div>
 </nav>
 
-<div class="main-container container" data-aos="zoom-in">
+<div class="main-container container " >
     <div class="hero-info" id="typed-strings">
         <h6>Hello, 👋 I'm Hussaini Esmatullah </h6>
         <h1>Frontend Developer.</h1>
@@ -49,54 +53,196 @@
             enjoy.</p>
         <span id="typed"></span>
         <div class="buttons">
-            <button class="book_Btn" data-aos="zoom-in-up"> <a href="/pages/call.html">Get in touch</a></button>
-            <button class="down_Btn" data-aos="zoom-in-left"> <a
-                    href="./TypeScript in 50 Lessons (Stefan Baumgartner).pdf" download>Download My Cv</a></button>
+            <button class="book_Btn" > <a href="#call.html">Get in touch </a></button>
+            <button class="down_Btn" > <a
+                    href="./TypeScript in 50 Lessons (Stefan Baumgartner).pdf" download>Download my cv <i class="bi bi-cloud-arrow-down"></i></a></button>
        </div>
     </div>
-    <div class="hero-info" data-aos="fade-up"
-     data-aos-anchor-placement="center-bottom">
+    <div class="hero-info " >
       <img src="./img/photo_2025-08-27_09-05-16.jpg" alt="Hero Image" class="hero-image">
     </div>
   </div>
 
 
- <hr>
-<!-- ============================ START ABOUT SECTION =========================== -->
-<section id="hero">
-<div class="container">
-        <section class="hero">
-            <h1>Dark Mode Navigation</h1>
-            <p>This demo shows a responsive navbar with a dark mode toggle. Click the toggle switch to change between light and dark themes.</p>
-            <button class="btn">Get Started</button>
-        </section>
 
-        <h2>Featured Content</h2>
-        <div class="card-grid">
-            <div class="card">
-                <div class="card-content">
-                    <h3>Modern Design</h3>
-                    <p>Our navbar features a sleek, modern design that works on all devices and screen sizes.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>Dark Mode</h3>
-                    <p>Toggle between light and dark themes with a smooth transition animation.</p>
-                </div>
-            </div>
-            <div class="card">
-                <div class="card-content">
-                    <h3>Fully Responsive</h3>
-                    <p>The layout adapts to mobile devices with a hamburger menu for smaller screens.</p>
-                </div>
+
+
+
+
+<!-- ============================ START ABOUT SECTION =========================== -->
+<section id="about">
+    <div class="about-container container block">
+        <div class="about">
+            <div class="about-img">
+                <img src="./img/Programming-pana.svg" alt="About Image">
             </div>
         </div>
+          <div class="about-text block">
+                <h4>About Me</h4>
+                <h5 class="highlight-text">I’m a Passionate web developer creating clean, responsive, and user-friendly websites <span class="dot">.</span></h5>
+                <p class="paragraph-text">Quickly incentivize impactful action items before tactical collaboration and idea-sharing. Monotonically engage market-driven intellectual capital through wireless opportunities. Progressively network performance based services for functionalized testing procedures.</p>
+    <div class="my-info block">
+      <span>Location : Lyon, France</span> <br>
+      <span>Email : example@gmail.com</span>
+    </div>
+    <br> <br>
+     <h4>My Skills</h4>
+     <div class="skills-icons text-center block d-flex gap-4 py-3 ">
+      <div class="skill "><i class="fab fa-html5"></i> <br><span>HTML5</span></div>
+      <div class="skill "><i class="fab fa-css3-alt"></i><br><span>CSS3</span></div>
+      <div class="skill "><i class="fab fa-js"></i><br><span>JavaScript</span></div>
+      <div class="skill "><i class="fab fa-css3-alt"></i><br><span>Bootstrap</span></div>
+      <div class="skill "><i class="fab fa-react"></i><br><span>React</span></div>
+      <div class="skill "><i class="fab fa-node-js"></i><br><span>Node.js</span></div>
+      
+    </div>
+
     </div>
 </section>
-    <footer>
-        <p>© 2023 Dark Mode Navbar Demo | Created with HTML, CSS & JavaScript</p>
-    </footer>
+
+<!-- ============================ START PROJECT CONTAINER =========================== -->
+
+<section id="Project" class="text-white">
+  <h3 class="text-center Project-title" >My Projects<span class="dot">.</span></h3>
+  <p class="text-center pb-4 pro_paragraph">Projects that highlight my skills and creativity</p>
+  <div class="project__container container block">
+    <div class="My_project">
+    <div class="pro__info block">
+      <img class="pro_img" src="../img/coding (3).jpg" alt="">
+      <div class="pro__body_info ">
+        <h5>Chocolate Shop Website<span class="dot">.</span></h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, soluta.</p>
+        <h6>React, Node.js, Express, MongoDB</h6>
+        <div class="pro_buttons" data-aos="flip-down">
+          <button class="liveBtn"><a href="https://spiffy-piroshki-2d2bf8.netlify.app/">🚀 Live Demo</a></button>
+          <button class="gitBtn"><a href="https://github.com/Hussaini57 "><i class="fab fa-github"></i> GitHub</a></button>
+        </div>
+      </div>
+    </div>
+   </div>
+
+    <div class="My_project block">
+    <div class="pro__info" >
+      <img class="pro_img" src="../img/coding (2).jpg" alt="">
+      <div class="pro__body_info">
+        <h5>EcoRide Web App<span class="dot">.</span></h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, soluta.</p>
+        <h6>React, Node.js, Express, MongoDB</h6>
+        <div class="pro_buttons" data-aos="flip-down">
+             <button class="liveBtn"><a href="https://spiffy-piroshki-2d2bf8.netlify.app/">🚀 Live Demo</a></button>
+             <button class="gitBtn"><a href="https://github.com/Hussaini57 "><i class="fab fa-github"></i> GitHub</a></button>
+        </div>
+      </div>
+    </div>
+   </div>
+
+    <div class="My_project block">
+    <div class="pro__info">
+      <img class="pro_img" src="../img/coding.jpg" alt="">
+      <div class="pro__body_info">
+        <h5>Task Manager<span class="dot">.</span></h5>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cupiditate, soluta.</p>
+        <h6>React, Node.js, Express, MongoDB</h6>
+        <div class="pro_buttons" data-aos="flip-down">
+           <button class="liveBtn"><a href="https://spiffy-piroshki-2d2bf8.netlify.app/">🚀 Live Demo</a></button>
+           <button class="gitBtn"><a href="https://github.com/Hussaini57 "><i class="fab fa-github"></i> GitHub</a></button>
+        </div>
+      </div>
+    </div>
+   </div>
+  </div>
+</section>
+
+
+<!-- ============================ START accordion SECTION =========================== -->
+
+<section id="accordion" >
+  <h3 class="text-center accordion__title block">My Growth as a Developer<span class="dot">.</span></h3>
+  <p class="text-center paragraph block"> From clean HTML structures to stylish CSS and interactive JavaScript, <br> I’ve grown step by step into building websites that are both functional and engaging.</p>
+
+  <div class="container-accordion container block">
+    <hr>
+    <button class="accordion c block">&#10004; HTML & Structure</button>
+    <div class="panel">
+      <p>HTML is the foundation of every website. It provides the essential structure and elements like headings,
+        paragraphs, forms, images, and links that organize content and define how information is displayed on the page.
+      </p>
+    </div>
+
+    <button class="accordion block">&#10004; CSS & Styling</button>
+    <div class="panel">
+      <p>CSS brings life to the structure by controlling colors, typography, spacing, and layout. It enables responsive
+        design, animations, and consistent styling, ensuring that web pages are visually appealing and user-friendly
+        across different devices.</p>
+    </div>
+
+    <button class="accordion block">&#10004; JavaScript & Interactivity</button>
+    <div class="panel">
+      <p>JavaScript adds interactivity and functionality to websites. It powers features like dropdowns, sliders, form
+        validation, dynamic content updates, and interactive applications, making the user experience engaging and
+        intuitive.</p>
+    </div>
+    <hr>
+  </div>
+</section>
+
+
+<!-- ============================ START CONTACT SECTION =========================== -->
+
+<section id="Contact" class="contact ">
+  <div class="contact-container container block">
+    <h4 class="contact-title text-center " >Let’s work together<span class="dot">.</span></h4>
+    <p class="contact-paragraph text-center text-white ">I’d love to connect! Feel free to reach out for collaborations, <br> opportunities, or just to say hello.</p>
+    <form action="https://api.web3forms.com/submit" method="POST" data-name="Contact Form" data-web3forms="true" data-callback="alert('Thank you for your message! I will get back to you soon.')">
+      <input type="hidden" name="access_key" value="77253c73-435e-45eb-83b1-5bef09f3dd83">
+      <input type="text" name="name" id="name" placeholder="Your Name" required><br>
+      <input type="text" name="lname" id="lname" placeholder="Your Last Name" required> <br>
+      <input type="text" name="Email" id="Email" placeholder="Your Email" required> <br>
+      <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
+      <input type="submit" value="submit" class="submit_btn">
+    </form>
+  </div>
+</section>
+
+
+<!-- ============================ START FOOTER SECTION =========================== -->
+<section id="footer">
+<footer class="footer-container container block">
+  <div class="fooer-logo">
+ <p class="logo-footer">e<span class="dot">.</span></p>
+  </div>
+    
+   <!-- <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>  -->
+    <a class="quick" href="/">home</a></ul>
+    <a class="quick" href="#about">about</a></ul>
+    <a class="quick" href="#Project">project</a></ul>
+    <a class="quick" href="#accordion">Accordion</a>
+    <a class="quick" href="#Contact">contact</a> 
+  </div>
+
+</footer>   
+<span class=" designer"> &copy; 2025 Your Website Name. All rights reserved. <a class="github_link" href="https://github.com/Hussaini57 "> <i class="fa-brands fa-github"></i></a><a href="https://github.com/Hussaini57 " target="_blank" class="text-decoration-none" > HUSSAINI Esmatullah<span class="dot">.</span></a></span> 
+</section>
+
+   
+     
+
+
+
+
+
+
+
+
+
+
+
+
+
+   
+
+
+        
 
 
 
@@ -113,13 +259,14 @@
 
 
 
-
-
+    
     <script src="./node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="https://cdn.lordicon.com/lordicon.js"></script>
 
 
+
   
     <script src="script.js"></script>
+   
 </body>
 </html>

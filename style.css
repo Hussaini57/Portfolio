@@ -6,15 +6,20 @@
     box-sizing: border-box;
     font-family: "Poppins", sans-serif;
 }
+html {
+  font-size: 16px; /* default browser size */
+}
 :root {
             /* Light theme variables */
-            --bg-primary: #fffffe;
+            --bg-primary: #1e1e1e;
             --Headline: #2b2c34;
             --paragraph-color: #2b2c34;
-            --button-color-bg:#6246ea;
-            --btn-text-color: #fffffe;
-            --stroke-color: #2b2c34; 
-            --main-color: #fffffe;
+            /* --button-color-bg:#6246ea; */
+            --color-secondary:#0a84ff;
+            --hover-color:#0372e1;
+            --btn-color: #f5f5f5;
+            --stroke-color: #fff; 
+            --main-color: #fffffeac;
             --card-tag-bg: #6246ea;
             --card-tag-color: #fffffe;
             --card-hight-lighter:#6246ea;
@@ -23,10 +28,30 @@
          
         }
 
-       
+
+
+   @keyframes appear {
+        from {
+          opacity: 0;
+          clip-path: inset(100% 100% 0 0);
+        }
+        to {
+          opacity: 1;
+          clip-path: inset(0 0 0 0);
+        }
+      }
+
+      .block {
+        animation: appear linear;
+        animation-timeline: view();
+        animation-range: entry 0% cover 40%;
+      }
+
+
+
+      
 body{
     background: var(--bg-primary);   
-/* light body */
     color: #212121; 
     font-family: Arial, Helvetica, sans-serif;
     font-size: 16px;
@@ -35,37 +60,44 @@ body{
     width: 100vw;
     min-height: 100vh;
     overflow-x: hidden;
-   
-    
+    scroll-behavior: smooth;
 }
 .navbar-brand{
-    color: #ffffff;
-    font-size: 1.6rem;
-    font-weight: 500;
+ color: #ffffff;
+ font-size: 1.6rem;
+ font-weight: 500;
 }
 .navbar{
-     background: #2d2d2d;
- 
-  /* Make it stick at top if you like */
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-    
+ background: #282828;
+ box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+ position: sticky;
+ top: 0;
+ z-index: 1000;
+ padding: 0.2rem 0rem; 
 }
-.navbar .dot{
-    color: #4361ee;
+.dot{
+    color: var(--color-secondary);
     font-size: 1.7rem;
 
 }
 .navbar .nav-item .nav-link{
     color: #ffffff;
-    font-weight: 200;
+    transition: 0.3s ease;
+    font-weight: 300;
 }
+.navbar .nav-item:hover .nav-link{
+    color: #cbc9c98f;
+}
+/* .navbar .nav-item .nav-link:focus{
+    color: var(--color-secondary);
+} */
+
 a{
     list-style: none;
     text-decoration: none;
-    font-weight: 200;
+    
 }
+
 .main-container {
     display: flex;
     justify-content: space-between;
@@ -78,65 +110,72 @@ a{
     }
     
 .hero-info h1 {
-    font-size: 2.5rem;
+    font-size: clamp(1.9rem, 5vw, 3.2rem);
+    /* font-size: clamp(1rem, calc(7vw + 1rem), 3rem);  */
     margin-bottom: 1rem;
-    font-weight: 700;
-    color: var(--button-color-bg);
+    font-weight: 600;
+    color: var(--color-secondary);
 }
     
 .hero-info h6 {
     font-size: 1.2rem;
-    color: var(--p-color);
+    color: var(--main-color);
     font-weight: 200;
     /* margin-bottom: 1.5rem; */
 }
     
 .hero-info p {
-    font-size: 1.2rem;
-    color: var(--p-color);
-    font-weight: 300;
+    font-size: 1.1rem;
+    color: var(--main-color);
+    font-weight: 200;
     margin-bottom: 1.1rem;
 }
 
-
+.buttons{
+  margin-bottom: 25px;
+}
 .book_Btn {
-    background: var(--button-color-bg);
+    background: var(--color-secondary);
     border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5rem 0.8rem;
     border-radius: 4px;
     cursor: pointer;
     font-weight: 500;
+    transition: 0.3s ease;
+    color: var(--btn-color);
 }
 
    .book_Btn:hover {
-       opacity: 0.9;
+       background-color: var(--hover-color);
+       color: var(--btn-color);
    }
 
    .book_Btn a {
-       color:var(--card-tag-color);
+       color:var(--btn-text-color);
        font-weight: 400;
    }
 
    .down_Btn {
        background: transparent;
        color: rgb(170, 48, 48);
-       border: 1px solid var(--button-color-bg);
-       padding: 0.4rem 1rem;
+       border: 1px solid var(--btn-color);
+       padding: 0.4rem 0.8rem;
        border-radius: 4px;
        cursor: pointer;
        font-weight: 500;
        margin-left: 20px;
-      
+       
       
    }
 
    .down_Btn:hover {
        opacity: 0.9;
-       background-color: var(--button-color-bg);
+       background-color: var(--hover-color);
+       border: none;
    }
 
    .down_Btn a {
-    color: var(--paragraph-color);
+    color: var(--btn-color);
     font-weight: 400;
    }
     .down_Btn:hover a{
@@ -144,12 +183,565 @@ a{
     }
 
   .hero-info img{
-            width: 300px;
-            filter: brightness(0.8);
-            height: auto;
-            display: block;
-            border-radius: 5px;
-        }
+     width: 300px;
+     filter: brightness(0.8);
+     height: auto;
+     display: block;
+     border-radius: 5px;
+}
+
+
+
+
+
+
+
+
+
+/* =================================> ABOUT SECTION <===================================  */
+
+#about{
+ padding-top: 55px;
+ background-color: var(--stroke-color);
+ box-shadow: rgba(0, 0, 0, 0.18) 0px 2px 4px;
+}
+
+.about-container{
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem 0;
+    gap: 60px;
+}
+.about-text{
+    width: 65%;
+}
+h2{
+    color: var(--color-secondary);
+}
+.highlight-text{
+  color: var(--paragraph-color);
+}
+.paragraph-text{
+    color: var(--paragraph-color);
+    line-height: 30px;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+}
+.my-info span{
+    color: #212121;
+    font-weight: 300;
+}
+.about-img img{
+    width: 400px;
+    /* filter: brightness(0.8); */
+    height: auto;
+    display: block;
+    border-radius: 5px;
+}
+h4{
+    color: var(--color-secondary);
+}
+.skills-icons{
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+.skill{
+    transition: 0.5s ease;
+    cursor: pointer;
+    color: var(--paragraph-color);
+}
+.skill:hover{
+    transform: scale(1.1);
+    color: var(--hover-color);
+}
+.skill i{
+    font-size: 2.5rem;
+} 
+.skill span{
+    font-weight: 400;
+    font-size: 1.1rem;
+}
+    
+
+/* ====================================> START PROJECT SECTION ====================================>  */ 
+
+#Project{
+ padding-top: 70px;
+}
+.Project-title{
+   color: var(--card-tag-color);
+   font-size: clamp(1.6rem, 2.5vw, 3rem);
+}
+.pro_paragraph{
+  color: var(--card-tag-color);
+}
+.project__container{
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.My_project{
+    background-color: var(--Headline);
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    width: 320px;
+    height: 450px;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+  
+.My_project:hover{
+      transform: translateY(-10px);
+    }
+  
+
+ .pro_img{
+  width: 100%;
+  height:auto;
+  display: block;
+  object-fit: cover;
+ }
+ .pro__body_info{
+  text-align: left;
+  padding: 15px;
+  
+ }
+ h5{
+    color: var(--stroke-color);
+  }
+  h6{
+    font-weight: 300;
+     color: var(--secondary-color);
+  }
+  .pro__body_info p{
+    font-weight: 200;
+    color: var(--secondary-color);
+  }
+  .pro__body_info h6{
+    color: var(--secondary-color);
+    margin-bottom: 14px;
+  }
+ .pro_buttons{
+  padding-top: 10px;
+ }
+ .getBtn a{
+  color: var(--card-tag-color);
+ }
+  .liveBtn{
+    padding: 5px 10px;
+    background-color: var(--btn-color);
+    cursor: pointer;
+    border: none;
+    font-size: 0.9rem;
+    border-radius: 999px;
+    transition: 0.9s ease;
+
+}
+.liveBtn a{
+  color: var(--Headline);
+}
+.liveBtn a:hover{
+  color: var(--btn-color);
+}
+.liveBtn:hover{
+      background-color: var(--hover-color);
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+      color: var(--btn-color) ;
+    }
+.gitBtn{
+    padding: 5px 10px;
+    background-color: transparent;
+    cursor: pointer;
+    border: 1px solid var(--secondary-color);
+    margin-left: 7px;
+    font-size: 0.9rem;
+    color: var(--btn-color);
+    border-radius: 999px;
+    transition: 0.9s ease;
+  
+    }
+  .gitBtn:hover {
+      background-color: var(--hover-color);
+      box-shadow: rgba(0, 0, 0, 0.07) 0px 1px 1px, rgba(0, 0, 0, 0.07) 0px 2px 2px, rgba(0, 0, 0, 0.07) 0px 4px 4px, rgba(0, 0, 0, 0.07) 0px 8px 8px, rgba(0, 0, 0, 0.07) 0px 16px 16px;
+      color: var(--btn-color);
+      border:none;
+  }
+  .gitBtn a{
+    color: var(--btn-color);
+  }
+  .gitBtn a:hover{
+    color: var(--btn-color);
+  }
+ 
+
+ /* ==================================< START ACCORDION-SECTION >=============================== */
+
+
+
+#accordion{
+    margin-top: 70px;
+    background-color: #fff;
+    min-height: 100vh;
+    width: 100vw;
+    padding-top: 60px;
+}
+.accordion__title{
+    color: var(--bg-primary);
+    font-weight: 500;
+    font-size: clamp(1.6rem, 2.5vw, 3rem);
+}
+.paragraph {
+    color: var(--paragraph-color);
+    font-weight: 300;
+    margin-bottom: 20px;
+    font-size: clamp(1.1rem, 2.5vw, 1.2rem);
+}
+
+
+.accordion {
+  border-bottom: 2px solid #000;
+  background-color: #ffffff;
+  color: var(--Headline);
+  cursor: pointer;
+  padding: 18px;
+  width: 100%;
+  text-align: left;
+  border: none;
+  outline: none;
+  transition: 0.5s ease;
+  font-size: 1.1rem;
+  font-weight: 500;
+  text-transform: capitalize;
+  position: relative;
+}
+.accordion::after{
+  content:"\f055";
+  font-family: FontAwesome;
+  font-style: normal;
+  font-weight: normal;
+  text-decoration: inherit;
+  position: absolute;
+  right: 20px;
+  font-size: 1.4rem;
+  border-radius: 50px;
+  color: var(--color-secondary);
+  
+}
+.active::after {
+  content: "\f056";
+  color: var(--hover-color);
+}
+/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
+.active, .accordion:hover {
+  background-color: #e7e7e7;
+  border-radius: 5px;
+
+}
+
+
+/* Style the accordion panel. Note: hidden by default */
+.panel {
+  padding: 0 18px;
+  background-color: white;
+  display: none;
+  overflow: hidden;
+  width: 100%;
+}
+.panel p{
+  margin: 10px 0px;
+  line-height: 1.6;
+  font-size: 1rem;
+  font-weight: 300;
+  color: var(--paragraph-color);
+ 
+}
+
+
+ /* ==================================< START CONTACT-SECTION >=============================== */
+  #Contact{
+    padding-top: 66px;
+    padding-bottom: 110px;
+  }
+.contact-title{
+  color: var(--card-tag-color);
+}
+  form input{
+    background-color: transparent;
+    width: 100%;
+    height: 40px;
+    border: 1px solid var(--card-tag-color);
+    margin: 7px 0;
+    border-radius: 5px;
+    color: var(--card-tag-color);
+    padding-left: 10px;
+    font-weight: 200;
+  }
+  form input:focus{
+    outline: 2px solid var(--color-secondary);
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  form textarea:focus{
+    outline: 2px solid var(--color-secondary);
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px, rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  }
+  ::placeholder{
+    color: #e7e7e7a7;
+    font-weight: 200;
+  }
+  form textarea{
+    background-color: transparent;
+    width: 100%;
+    height: 150px;
+    border: 1px solid var(--card-tag-color);
+    margin: 10px 0;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-top: 5px;
+    color: var(--card-tag-color);
+    font-weight: 200;
+    margin-bottom: 20px;
+  }
+  form .submit_btn{
+    background-color: var(--card-tag-color);
+    border: none;
+    color: var(--bg-primary);
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: 0.9s ease;
+  }
+  .submit_btn:hover{
+    background-color: var(--hover-color);
+    color: var(--btn-color);
+  }
+
+
+ /* ==================================< START FOOTER-SECTION >=============================== */
+
+#footer{
+ text-align: center;
+ position: relative;
+   --r: 20px; /* the radius */
+  --s: 30px; /* size of inner curve */
+  --x: 20px; /* horizontal offset (no percentage) */
+  --y: 10px; /* vertical offset (no percentage) */
+  
+  width: 100%;
+  height: 170px;
+  aspect-ratio: 1;
+  background: #282828;
+  --_m:/calc(2*var(--r)) calc(2*var(--r)) radial-gradient(#000 70%,#0000 72%);
+  --_g:conic-gradient(at calc(100% - var(--r)) var(--r),#0000 25%,#000 0);
+  --_d:(var(--s) + var(--r));
+  mask:
+    calc(100% - var(--_d) - var(--x)) 0 var(--_m),
+    100% calc(var(--_d) + var(--y)) var(--_m),
+    radial-gradient(var(--s) at 100% 0,#0000 99%,#000 calc(100% + 1px)) 
+     calc(-1*var(--r) - var(--x)) calc(var(--r) + var(--y)),
+    var(--_g) calc(-1*var(--_d) - var(--x)) 0,
+    var(--_g) 0 calc(var(--_d) + var(--y));
+  mask-repeat: no-repeat;
+}
+ .designer{
+  text-align: center;
+  color: #eeeeee82;
+  position: absolute;
+  font-weight: 200;
+  bottom: 10px;
+  left: 0;
+  right: 0;
+
+ }
+  .designer .github_link{
+    color: #eee;
+    text-decoration: none;
+    text-transform: capitalize;
+    font-weight: 200;
+    transition: all 0.5s ease-out;
+   
+  }
+.github_link:hover{
+      color: var(--hover-color);
+      transform: translateX(-6px);
+    }
+
+.footer-container{
+  display: block;
+  justify-content: space-between;
+  align-items: center;
+  text-align: center;
+  padding-top: 20px;
+}
+.footer-container .quick{
+    margin: 10px ;
+    padding-top: 40px;
+    color: var(--card-tag-color);
+    text-transform: capitalize;
+    font-weight: 200;
+    transform: 0.9s ease;
+}
+.footer-container .quick:hover{
+  color: var(--hover-color)}
+
+.logo-footer{
+  font-size: 1.8rem;
+  margin: 0;
+  color: var(--stroke-color);
+  margin-bottom: 20px;
+ }
+
+
+
+ 
+  
+
+
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+
+
+
+
+
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+
+
+@media screen and (max-width: 768px){
+ 
+.block {
+    animation: none; /* disables animation completely */
+  }
+.navbar .navbar-toggler{
+    border: none;
+}
+
+.navbar-toggler:focus {
+  outline: none;
+  box-shadow: none;
+ 
+}
+
+.menu.icon {
+  color: #ffffff;
+  position: absolute;
+  margin-left: 2px;
+  margin-top: 13px;
+  width: 20px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.menu.icon:before {
+  content: '';
+  position: absolute;
+  top: -7px;
+  left: 0;
+  width: 30px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+.menu.icon:after {
+  content: '';
+  position: absolute;
+  top: 7px;
+  left: 0;
+  width: 15px;
+  height: 2px;
+  background-color: rgb(255, 255, 255);
+}
+
+/* main container */
+.main-container{
+  flex-wrap: wrap;
+}
+.hero-info img{
+  width: 100%;
+  height: auto;
+}
+
+/* about container */
+.about-container{
+        flex-wrap: wrap;
+        padding: 0px 16px;
+    }
+    .about-text{
+        width: 100%;
+    }
+    .about-img img{
+        width: 110%;
+        height: auto;
+    }
+    .skills-icons{
+        flex-wrap: wrap;
+        justify-content: left;
+    }
+
+/* start PROJECT SECTION */
+
+  .project__container{
+     flex-wrap: wrap;
+     gap: 30px 0;
+  }
+   .My_project{
+    width: 100%;
+    height: 470px;
+  }
+
+  #accordion{
+   min-height: 490px;
+  }
+#footer{
+  min-height: 52vh;
+}
+.footer-container{
+  text-align: left;
+  flex-wrap: wrap;
+  
+}
+.footer-container .quick{
+  font-size: 1.2rem;
+  font-weight: 300;
+  margin:0 ;
+  display: block;
+  padding-top: 15px;
+ }
+ .designer{
+  font-size: 1.2rem;
+  font-weight: 300;
+ }
+
+}
+
+
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
+/* ====================================> RESPONSIVE SECTION ====================================>  */ 
 
 
 
@@ -168,135 +760,3 @@ a{
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-.card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .card {
-            background-color: var(--card-bg);
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            border: 1px solid var(--border);
-        }
-
-        .card-content {
-            padding: 1.5rem;
-        }
-
-        .card h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        .card p {
-            color: var(--text-secondary);
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            margin-top: 3rem;
-            background-color: var(--bg-secondary);
-            color: var(--text-secondary);
-        }
-
-                @media (max-width: 768px) {
-                    .nav-links {
-                        display: none;
-                        position: absolute;
-                        top: 100%;
-                        left: 0;
-                        width: 100%;
-                        background-color: var(--bg-secondary);
-                        flex-direction: column;
-                        padding: 1rem;
-                        box-shadow: var(--nav-shadow);
-                        gap: 1rem;
-                    }
-        
-                    .nav-links.active {
-                        display: flex;
-                    }
-        
-                    .menu-toggle {
-                        display: block;
-                    }
-        
-                    /* main container */
-                    .main-container {
-                        flex-direction: column;
-                        
-                    }
-        
-                    .hero-info img {
-                        width: 100%;
-                        height: auto;
-                        padding: 1.4rem 0;
-                    }
-                }
-
-      
-
-
-      
